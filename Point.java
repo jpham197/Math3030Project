@@ -10,31 +10,27 @@ public class Point {
 		this.z = z;
 	}
 
-	public getX() {
+	public int getX() {
 		return x;
 	}
 
-	public getY() {
+	public int getY() {
 		return y;
 	}
 
-	public getZ() {
+	public int getZ() {
 		return z;
 	}
 
-	public setX(int d) {
+	public void setX(int d) {
 		x = d;
 	}
 
-	public setY(int d) {
+	public void setY(int d) {
 		y = d;
 	}
-	public setZ(int d) {
+	public void setZ(int d) {
 		z = d;
-	}
-
-	public Vector getVector(Point p1, Point p2)
-		return ("<"+(p2.getX() - p1.getX()) + ", " +(p2.getY() - p1.getY()) +", "+(p2.getZ() - p1.getZ)+">") ;
 	}
 
 	public String toString() {

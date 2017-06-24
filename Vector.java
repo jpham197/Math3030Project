@@ -3,28 +3,34 @@ public class Vector {
 	private int y;
 	private int z;
 
-	public Vector(Point a, Point b){
-		x=b.getX-a.getX;
-		y=b.getY-a.getY;
-		z=b.getZ-a.getZ;
+	public Vector(int x, int y, int z){ //constructor
+		this.x = x;
+		this.y = y;
+		this.z = z;
 	}
 
-	public getX() {
+	public Vector(Vector v) {
+		x = v.getX();
+		y = v.getY();
+		z = v.getZ();
+	}
+
+	public int getX() {
 		return x;
 	}
-	public getY() {
+	public int getY() {
 		return y;
 	}
-	public getZ() {
+	public int getZ() {
 		return z;
 	}
-	public setX(int d) {
+	public void setX(int d) {
 		x = d;
 	}
-	public setY(int d) {
+	public void setY(int d) {
 		y = d;
 	}
-	public setZ(int d) {
+	public void setZ(int d) {
 		z = d;
 	}
 
@@ -32,8 +38,17 @@ public class Vector {
 		return (x*p2.getX())+(y*p2.getY())+(z*getZ());
 	}
 
-	public Vector xProduct(Vector p2){
-		Vector Purr=new Vector;
+	public Vector getVector(Point p1, Point p2) { //creates vector from two points (passed in as arguments)
+		int i, j, k;
+		i = p2.getX() - p1.getX();
+		j = p2.getY() - p1.getY();
+		k = p2.getZ() - p1.getZ();
+		Vector v1 = new Vector(i, j, k);
+		return v1;
+	}
+
+	public Vector xProduct(Vector p2){ //creates cross product by calling method on another vector
+		Vector Purr = new Vector(0, 0, 0);
 		Purr.setX(getY()*p2.getZ()-getZ()*p2.getY());
 		Purr.setY(getZ()*p2.getX()-getX()*p2.getZ());
 		Purr.setZ(getX()*p2.getY()-getY()*p2.getX());
@@ -41,7 +56,7 @@ public class Vector {
 	}
 
 	public boolean isParallel(Vector v) {
-		if (x/v.getX() == y/v.getY()) && (y/v.getY() == z/v.getZ()) &&) {
+		if ((x/v.getX() == y/v.getY()) && (y/v.getY() == z/v.getZ())) {
 			return true;
 		} else {
 			return false;
@@ -49,7 +64,13 @@ public class Vector {
 	}
 
 	public boolean isEqual(Vector v) {
-		if (x==v.getX()) && (y==v.getY()) && (z==z.getZ()) {
+		// if (x==v.getX()) && (y==v.getY()) && (z==z.getZ()) {
+		// 	return true;
+		// } else {
+		// 	return false;
+		// }
+
+		if (x==v.getX() && y==v.getY() && z==v.getZ()) {
 			return true;
 		} else {
 			return false;
